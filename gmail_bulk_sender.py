@@ -24,7 +24,7 @@ from email import encoders
 from pathlib import Path
 import re
 from datetime import datetime
-import webbrowser  # For opening the sales page
+import webbrowser
 
 # Configuration
 PLACEHOLDER_COUNT = 7  # Adjust the number of placeholders here
