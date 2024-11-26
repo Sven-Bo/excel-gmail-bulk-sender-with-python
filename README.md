@@ -2,6 +2,8 @@
 
 This tool lets you send personalized bulk emails directly from Excel using Python and Gmail. It's perfect for automating email campaigns, sending reports, or any task that involves reaching multiple recipients efficiently.
 
+[![Download Files](https://img.shields.io/badge/Download-Files-blue?style=for-the-badge&logo=github)](gmail_bulk_sender)
+
 ![Demo](demo.png)
 
 ## Features
@@ -35,8 +37,8 @@ This tool lets you send personalized bulk emails directly from Excel using Pytho
 
 
 
-## Video Tutorial (Coming soon!)
-[![YouTube Video](https://img.youtube.com/vi/XXX/0.jpg)](https://youtu.be/XXX)
+## Video Tutorial
+[![YouTube Video](https://img.youtube.com/vi/FA2awDU9AV8/0.jpg)](https://youtu.be/FA2awDU9AV8)
 
 
 ## 🤝 Connect with Me
