@@ -151,16 +151,20 @@ def main():
                 for email in row_data["Receiver"].split(",")
                 if email.strip()
             ]
-            cc_list = [
-                email.strip()
-                for email in (row_data.get("CC", "").split(","))
-                if email.strip()
-            ]
-            attachment_list = [
-                file.strip()
-                for file in (row_data.get("Attachment(s)", "").split(","))
-                if file.strip()
-            ]
+            cc_list = []
+            if row_data.get("CC") is not None:
+                cc_list = [
+                    email.strip()
+                    for email in row_data["CC"].split(",")
+                    if email.strip()
+                ]
+            attachment_list = []
+            if row_data.get("Attachment(s)") is not None:
+                attachment_list = [
+                    file.strip()
+                    for file in row_data["Attachment(s)"].split(",")
+                    if file.strip()
+                ]
             subject = row_data["Subject"] or ""  # Subject can be empty
             placeholders = {
                 f"{{{{Placeholder{i+1}}}}}": row_data.get(f"Placeholder{i+1}", "")
@@ -211,19 +215,19 @@ def main():
         ).value = status_value
 
     # Inform user via MsgBox
-    wb.app.alert(
-        prompt=f"Task completed.\n\nEmails sent successfully: {sent_count}\n\nCheck the Status column for details.",
-        title="Status",
-        mode="info",
-    )
-
-    # Offer to explore the advanced Gmail Bulk Sender
     button_value = wb.app.alert(
-        prompt="Task completed successfully. If you're looking for even more advanced features, consider exploring the advanced Gmail Bulk Sender.\nWould you like to learn more?",
-        title="Advanced Gmail Bulk Sender",
+        prompt=(
+            f"Task completed.\n\n"
+            f"Emails sent successfully: {sent_count}\n\n"
+            f"Check the Status column for details.\n\n"
+            f"Would you like to explore the advanced Gmail Bulk Sender for more features?"
+        ),
+        title="Task Completed",
         buttons="yes_no",
         mode="info",
     )
+
+    # Handle response for advanced tool
     if button_value == "yes":
         webbrowser.open("https://pythonandvba.com/gmail-excel-blaster")
 
